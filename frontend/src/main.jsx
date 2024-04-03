@@ -1,14 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import App from "./App";
+import Blindtest, { loadSongsData } from "./pages/Blindtest";
+import Score, { loadScoresData } from "./pages/Score";
+import "./styles/index.scss";
+import Admin from "./pages/Admin";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Blindtest />,
+        loader: loadSongsData,
+      },
+      {
+        path: "/leaderboard",
+        element: <Score />,
+        loader: loadScoresData,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
+        loader: loadSongsData,
+      },
+    ],
   },
 ]);
 

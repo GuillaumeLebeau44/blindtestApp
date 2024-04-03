@@ -1,0 +1,88 @@
+.mainPseudoWindow {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(15px);
+  .pseudoWindow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    p {
+      color: black;
+      font-size: 28px;
+      font-weight: 500;
+    }
+    .inputWindow {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      .letterMap {
+        display: flex;
+        gap: 5px;
+        .letterInput {
+          width: 45px;
+          border-radius: 10px;
+          font-size: 30px;
+          font-weight: 500;
+          text-transform: uppercase;
+          text-align: center;
+        }
+      }
+      .startButton {
+        padding: 10px;
+        margin-left: 20px;
+        align-items: center;
+        text-decoration: none;
+        border: solid black 2px;
+        border-radius: 10px;
+        background: transparent;
+        padding: 3px 7px 7px 7px;
+        color: black;
+        font-size: 25px;
+        text-align: center;
+        font-weight: 500;
+        &:hover {
+          cursor: pointer;
+        }
+        &:active {
+          scale: 0.9;
+        }
+      }
+    }
+    .errorMsg {
+      font-size: 18px;
+      text-align: center;
+      font-weight: 500;
+      color: black;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainPseudoWindow {
+    .pseudoWindow {
+      p {
+        font-size: 24px;
+        text-align: center;
+      }
+      .inputWindow {
+        flex-direction: column;
+        margin-top: 2vh;
+        gap: 10px;
+        .letterMap {
+          .letterInput {
+            width: 35px;
+          }
+        }
+        .startButton {
+          font-size: 20px;
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+}
