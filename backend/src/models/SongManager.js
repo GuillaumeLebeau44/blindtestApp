@@ -19,9 +19,11 @@ class SongManager extends AbstractManager {
   }
 
   async addSong(title, link, embed, game) {
+    const embedWithAutoplay = `${embed}&autoplay=1`;
+
     const [song] = await this.database.query(
       `INSERT INTO ${this.table} (title, link, embed, game) VALUES (?, ?, ?, ?)`,
-      [title, link, embed, game]
+      [title, link, embedWithAutoplay, game]
     );
     return song;
   }
@@ -31,6 +33,17 @@ class SongManager extends AbstractManager {
       `DELETE FROM ${this.table} WHERE id = ?`,
       [id]
     );
+    return song;
+  }
+
+  async updateSong(id, title, link, embed, game) {
+    const embedWithAutoplay = `${embed}&autoplay=1`;
+
+    const [song] = await this.database.query(
+      `UPDATE ${this.table} SET title = ?, link = ?, embed = ?, game = ? WHERE id = ?`,
+      [title, link, embedWithAutoplay, game, id]
+    );
+
     return song;
   }
 }

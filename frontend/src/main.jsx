@@ -6,6 +6,7 @@ import Blindtest, { loadSongsData } from "./pages/Blindtest";
 import Score, { loadScoresData } from "./pages/Score";
 import "./styles/index.scss";
 import Admin from "./pages/Admin";
+import EndlessBlindtest from "./pages/EndlessBlindtest";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Blindtest />,
+        loader: loadSongsData,
+      },
+      {
+        path: "/endless",
+        element: <EndlessBlindtest />,
         loader: loadSongsData,
       },
       {

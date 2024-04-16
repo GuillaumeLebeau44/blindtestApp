@@ -1,4 +1,20 @@
 @import "settings";
-@import "blindtest";
-@import "admin";
-@import "postPseudo";
+
+// pages
+
+@import "pages/blindtest";
+@import "pages/admin";
+@import "pages/score";
+@import "pages/endlessBlindtest";
+
+//components
+
+@import "components/postPseudo";
+@import "components/rules";
+@import "components/connexion";
+@import "components/postSongForm";
+@import "components/deleteSongForm";
+@import "components/editSongForm";
+@import "components/gameParams";
+@import "components/failedRound";
+@import "components/winRound";

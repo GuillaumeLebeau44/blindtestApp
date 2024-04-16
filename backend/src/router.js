@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-// const verifyToken = require("./services/auth");
+const { verifyToken } = require("./middlewares/auth");
 
 /* ************************************************************************* */
 // Define Your API Routes Here
@@ -13,6 +13,10 @@ const itemControllers = require("./controllers/itemControllers");
 const songControllers = require("./controllers/songControllers");
 const scoreControllers = require("./controllers/scoreControllers");
 const authControllers = require("./controllers/authControllers");
+const {
+  validateAddSong,
+  validateEditSong,
+} = require("./middlewares/songValidation");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -25,15 +29,15 @@ router.get("/songs/:id", songControllers.read);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
-
 router.post("/scores", scoreControllers.add);
 router.post("/login", authControllers.login);
 
 // admin
-// router.use(verifyToken);
+router.use(verifyToken);
 
-router.post("/songsadd", songControllers.add);
-router.delete("/songsdel/:id", songControllers.remove);
+router.post("/songsadd", verifyToken, validateAddSong, songControllers.add);
+router.put("/songs/:id", verifyToken, validateEditSong, songControllers.edit);
+router.delete("/songsdel/:id", verifyToken, songControllers.remove);
 
 /* ************************************************************************* */
 

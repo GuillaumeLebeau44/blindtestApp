@@ -1,8 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import PostPseudo from "../components/PostPseudo";
 import { usePseudo } from "../context/PseudoContext";
+import Rules from "../components/Rules";
+import GameParams from "../components/GameParams";
+import FailedRound from "../components/FailedRound";
+import WinRound from "../components/WinRound";
 
 function Blindtest() {
   const songs = useLoaderData();
@@ -22,6 +26,7 @@ function Blindtest() {
   const [score, setScore] = useState(0);
   const [hints, setHints] = useState("");
   const [gameStarted, setGameStarted] = useState(false);
+  const [displayRules, setDisplayRules] = useState(false);
 
   useEffect(() => {
     const savedPseudo = localStorage.getItem("pseudo");
@@ -103,6 +108,13 @@ function Blindtest() {
     }
   };
 
+  const handleUserAnswerChange = (e) => {
+    const { value } = e.target;
+    const filteredValue = value.replace(/[<>]/g, "");
+
+    setUserAnswer(filteredValue);
+  };
+
   const handleSubmit = () => {
     if (currentMusicIndex !== null) {
       const currentSong = songs[currentMusicIndex];
@@ -168,7 +180,7 @@ function Blindtest() {
   }, [currentMusicIndex, isCorrectAnswer]);
 
   async function handleScore() {
-    if (finishedGame === true) {
+    if (finishedGame === true && pseudo.length === 5 && !Number.isNaN(score)) {
       try {
         await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/scores`, {
           score,
@@ -183,7 +195,26 @@ function Blindtest() {
     handleScore();
   }, [finishedGame]);
 
-  const resetGame = () => {
+  const handleDisplayRules = () => {
+    setDisplayRules((prevDisplayRules) => !prevDisplayRules);
+  };
+
+  const rulesRef = useRef();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (rulesRef.current && !rulesRef.current.contains(event.target)) {
+        setDisplayRules(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const replayGame = () => {
     setCurrentMusicIndex(null);
     setUserAnswer("");
     setIsCorrectAnswer(false);
@@ -197,17 +228,17 @@ function Blindtest() {
     setFinishedGame(false);
     setScore(0);
 
-    savePseudo("");
-    setGameStarted(false);
-
-    localStorage.removeItem("pseudo");
     localStorage.removeItem("gameStarted");
   };
 
   return (
     <div className="mainWindow">
       <div className="topButtons">
-        <button type="button" className="rulesButton">
+        <button
+          type="button"
+          className="rulesButton"
+          onClick={handleDisplayRules}
+        >
           <p>📖</p>
         </button>
         <button
@@ -218,12 +249,33 @@ function Blindtest() {
           <p>🏆</p>
         </button>
       </div>
+      <div
+        className={`rulesBox ${displayRules ? "fadeIn" : ""}`}
+        ref={rulesRef}
+      >
+        {displayRules && <Rules handleDisplayRules={handleDisplayRules} />}
+      </div>
+
+      <GameParams
+        setCurrentMusicIndex={setCurrentMusicIndex}
+        setUserAnswer={setUserAnswer}
+        setIsCorrectAnswer={setIsCorrectAnswer}
+        setTimerId={setTimerId}
+        setElapsedTime={setElapsedTime}
+        setSubmissionTime={setSubmissionTime}
+        setDisabledButton={setDisabledButton}
+        setUsedIndices={setUsedIndices}
+        setAttempts={setAttempts}
+        setRounds={setRounds}
+        setFinishedGame={setFinishedGame}
+        setScore={setScore}
+        savePseudo={savePseudo}
+        setGameStarted={setGameStarted}
+        pseudo={pseudo}
+      />
 
       {gameStarted ? (
         <div className={!finishedGame ? "gameWindow" : "endScreen"}>
-          <button className="resetButton" type="button" onClick={resetGame}>
-            <img src="/src/assets/reset-svgrepo-com.svg" alt="reseticon" />
-          </button>
           <div className="musicPlayerOn">
             {currentMusicIndex !== null && (
               <iframe
@@ -252,7 +304,7 @@ function Blindtest() {
                   ? "/src/assets/trophy-svgrepo-com.svg"
                   : "/src/assets/play-button-movie-svgrepo-com.svg"
               }
-              alt="playicon"
+              alt="play icon"
             />
           </button>
           <div className="gameRecap">
@@ -261,14 +313,14 @@ function Blindtest() {
           </div>
           <div className="answerDiv">
             <div className="playerInput">
-              <label htmlFor="userAnswer">Votre réponse :</label>
+              <label htmlFor="userAnswer">Votre reponse :</label>
               <div className="datalist-container">
                 <input
                   type="text"
                   id="userAnswer"
                   list="userAnswerList"
                   value={userAnswer}
-                  onChange={(e) => setUserAnswer(e.target.value)}
+                  onChange={handleUserAnswerChange}
                   onKeyDown={handleKeySubmit}
                   disabled={attempts > 2 || isCorrectAnswer}
                 />
@@ -295,31 +347,14 @@ function Blindtest() {
             )}
           </div>
           {isCorrectAnswer && (
-            <div className="correctAnswer">
-              <p>Bonne Réponse !</p>
-              <p>Temps: {submissionTime} secondes</p>
-              <div className="linksToPlatforms">
-                <p>Retrouvez cette musique sur YouTube :</p>
-                <div className="youtubeLink">
-                  <a
-                    aria-label="youtubeLink"
-                    href={songs[currentMusicIndex].link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/src/assets/youtube-svgrepo-com.svg"
-                      alt="youtubeicon"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
+            <WinRound
+              submissionTime={submissionTime}
+              songs={songs}
+              currentMusicIndex={currentMusicIndex}
+            />
           )}
           {attempts === 3 && (
-            <div className="failedRound">
-              <p>La bonne réponse était : {songs[currentMusicIndex].game}</p>
-            </div>
+            <FailedRound songs={songs} currentMusicIndex={currentMusicIndex} />
           )}
         </div>
       ) : (
@@ -327,9 +362,9 @@ function Blindtest() {
       )}
       {finishedGame && (
         <div className="finishedGame">
-          <p>Partie terminée</p>
+          <p>Partie terminee</p>
           <div>Score : {score} points</div>
-          <button type="button" onClick={resetGame}>
+          <button type="button" onClick={replayGame}>
             Recommencer
           </button>
         </div>

@@ -37,6 +37,31 @@ const add = async (req, res, next) => {
   }
 };
 
+const edit = async (req, res, next) => {
+  try {
+    const songId = req.params.id;
+    const modifiedSongData = req.body;
+
+    const updatedSong = await tables.song.updateSong(
+      songId,
+      modifiedSongData.song_title,
+      modifiedSongData.song_link,
+      modifiedSongData.song_embed,
+      modifiedSongData.song_game
+    );
+
+    if (!updatedSong) {
+      return res.status(404).json({ message: "Chanson non trouvée" });
+    }
+    res
+      .status(200)
+      .json({ message: "Chanson modifiée avec succès", song: updatedSong });
+  } catch (err) {
+    next(err);
+  }
+  return null;
+};
+
 const remove = async (req, res, next) => {
   try {
     const removeId = await tables.song.removeById(req.params.id);
@@ -51,5 +76,6 @@ module.exports = {
   browse,
   read,
   add,
+  edit,
   remove,
 };

@@ -33,35 +33,33 @@ function Connexion({ connexion, setConnexion }) {
   }
 
   return !connexion ? (
-    <div>
-      <div className="connexion">
-        <div className="connexionModal">
-          {/* Formulaires de connexion */}
-          <form onSubmit={handleSubmit}>
-            {/* Champ pour l'adresse e-mail */}
-            <input
-              type="email"
-              name="Email"
-              placeholder="E-mail"
-              value={inputEmail}
-              onChange={(e) => setInputEmail(e.target.value)}
-            />
-            {/* Champ pour le mot de passe */}
-            <input
-              type="password"
-              name="Password"
-              placeholder="Mot de passe"
-              value={inputPassword}
-              onChange={(e) => setInputPassword(e.target.value)}
-            />
-            {/* Bouton de connexion */}
-            <button className="button1 connexionBtn" type="submit">
-              Se connecter
-            </button>
-          </form>
-          {/* Affichage du message d'erreur */}
-          {errorMessage && <p>{errorMessage}</p>}
-        </div>
+    <div className="connexion">
+      <div className="connexionModal">
+        {/* Formulaires de connexion */}
+        <form onSubmit={handleSubmit}>
+          {/* Champ pour l'adresse e-mail */}
+          <input
+            type="email"
+            name="Email"
+            placeholder="E-mail"
+            value={inputEmail}
+            onChange={(e) => setInputEmail(e.target.value)}
+          />
+          {/* Champ pour le mot de passe */}
+          <input
+            type="password"
+            name="Password"
+            placeholder="Mot de passe"
+            value={inputPassword}
+            onChange={(e) => setInputPassword(e.target.value)}
+          />
+          {/* Bouton de connexion */}
+          <button className="connexionBtn" type="submit">
+            Se connecter
+          </button>
+        </form>
+        {/* Affichage du message d'erreur */}
+        {errorMessage && <p>{errorMessage}</p>}
       </div>
     </div>
   ) : null;

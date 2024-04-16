@@ -22,7 +22,7 @@ const login = async (req, res) => {
       const token = await jwt.sign(
         { sub: user.id, isAdmin: user.is_admin },
         process.env.APP_SECRET,
-        { expiresIn: "1h" }
+        { expiresIn: "2h" }
       );
 
       res.status(200).send({ token, user });

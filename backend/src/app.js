@@ -4,6 +4,8 @@ const express = require("express");
 
 const app = express();
 
+require("./services/scoreResetScheduler");
+
 // Configure it
 
 /* ************************************************************************* */

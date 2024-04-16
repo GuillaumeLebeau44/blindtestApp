@@ -1,7 +1,12 @@
+@font-face {
+  font-family: "Connection Serif";
+  src: url("src/assets/connection-serif-font/ConnectionSerif-d20X.otf");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Connection Serif";
   transition: all 150ms;
 }

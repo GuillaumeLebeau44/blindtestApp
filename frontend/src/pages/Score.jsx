@@ -3,17 +3,35 @@ import { NavLink, useLoaderData } from "react-router-dom";
 function Score() {
   const scores = useLoaderData();
 
+  const isScoresEmpty = scores.length === 0;
+
   return (
-    <div>
+    <div className="mainScoreWindow">
       <div className="link">
         <NavLink to="/">Retour</NavLink>
       </div>
-      <div>
-        {scores.map((score) => (
-          <div key={score.id}>
-            {score.username}: {score.points}
-          </div>
-        ))}
+      <div className="leaderboard">
+        <h1>LEADERBOARD</h1>
+        {isScoresEmpty ? (
+          <p>
+            Personne n'a inscrit de score pour le moment ! <br /> A vous de
+            jouer !
+          </p>
+        ) : (
+          <ul className="scoreboard scoreboard-with-padding">
+            {scores.map((score) => (
+              <li key={score.id} className="userScore">
+                <span className="userPseudo">{score.username}</span>
+                <span className="dotsBetween">
+                  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                  . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                </span>
+                <span className="userPoints">{score.points}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

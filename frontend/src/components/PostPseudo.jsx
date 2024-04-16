@@ -21,11 +21,8 @@ function PostPseudo({ onSubmit }) {
   const handleBackspace = (event, index) => {
     if (event.key === "Backspace" && index > 0) {
       if (pseudo[index] === "") {
-        // Si la touche Backspace est pressée et le champ est vide
-        // Mettre le focus sur le champ d'entrée précédent
         inputRefs.current[index - 1].focus();
       } else {
-        // Si le champ n'est pas vide, effacer son contenu
         const updatedPseudo = [...pseudo];
         updatedPseudo[index] = "";
         setPseudo(updatedPseudo);
@@ -61,7 +58,7 @@ function PostPseudo({ onSubmit }) {
     if (formattedPseudo.length === 5) {
       onSubmit(formattedPseudo);
     } else {
-      setError("Le pseudo doit comporter 5 caractères.");
+      setError("Le pseudo doit comporter 5 caracteres.");
     }
   };
 

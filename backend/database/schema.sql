@@ -15,7 +15,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE score (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, username VARCHAR(5) NOT NULL, points INT NULL
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, username VARCHAR(5) NOT NULL, points INT NOT NULL
 );
 
 /* -------- INSERT -------- */
@@ -76,7 +76,7 @@ VALUES (
         'Professor Layton''s Theme', 'https://youtu.be/GYlpoteRT6o?si=YoggOwzVSPOpHjpT', 'https://www.youtube.com/embed/GYlpoteRT6o?autoplay=1&si=jSlsHQXWHYYbhU-9', 'Professeur Layton et l''étrange village'
     ),
     (
-        'Pokémon Red & Blue : Opening Theme', 'https://youtu.be/NdJQopRuH1E?si=XxT3Jq9T7bs6kdL_', 'https://www.youtube.com/embed/NdJQopRuH1E?autoplay=1&si=fsuzK0p9U66PwiNX', 'Pokemon Rouge & Bleu'
+        'Pokémon Red & Blue : Opening Theme', 'https://youtu.be/NdJQopRuH1E?si=XxT3Jq9T7bs6kdL_', 'https://www.youtube.com/embed/NdJQopRuH1E?autoplay=1&si=fsuzK0p9U66PwiNX', 'Pokemon Rouge/Bleu'
     ),
     (
         'Dragonborn', 'https://youtu.be/6fILxnBH1Tg?si=fPPABkLED7gI9nGg', 'https://www.youtube.com/embed/6fILxnBH1Tg?si=r9Ey2wfh5ydV-nKh&amp;start=15&autoplay=1', 'The Elder Scrolls V : Skyrim'
@@ -166,16 +166,16 @@ VALUES (
         'Theme Song', 'https://youtu.be/NTa6Xbzfq1U?si=eFpqpD1Ojpi8ZHsW', 'https://www.youtube.com/embed/NTa6Xbzfq1U?autoplay=1&si=eFpqpD1Ojpi8ZHsW', 'Super Mario Bros.'
     ),
     (
-        'Pallet Town Theme', 'https://youtu.be/7lokJiY5Xgo?si=nnU0Jc6D787caoCx', 'https://www.youtube.com/embed/7lokJiY5Xgo?autoplay=1&si=nnU0Jc6D787caoCx', 'Pokemon Rouge & Bleu'
+        'Pallet Town Theme', 'https://youtu.be/7lokJiY5Xgo?si=nnU0Jc6D787caoCx', 'https://www.youtube.com/embed/7lokJiY5Xgo?autoplay=1&si=nnU0Jc6D787caoCx', 'Pokemon Rouge/Bleu'
     ),
     (
-        'Battle! (Trainer Battle)', 'https://youtu.be/as5EhE9f14o?si=vrHMJQtCeRJngQpM', 'https://www.youtube.com/embed/as5EhE9f14o?autoplay=1&si=vrHMJQtCeRJngQpM', 'Pokemon Rouge & Bleu'
+        'Battle! (Trainer Battle)', 'https://youtu.be/as5EhE9f14o?si=vrHMJQtCeRJngQpM', 'https://www.youtube.com/embed/as5EhE9f14o?autoplay=1&si=vrHMJQtCeRJngQpM', 'Pokemon Rouge/Bleu'
     ),
     (
-        'Battle! (Wild Pokémon)', 'https://youtu.be/HYK9U-yxW1U?si=2zNhfz5oqwxCABLX', 'https://www.youtube.com/embed/HYK9U-yxW1U?autoplay=1&si=2zNhfz5oqwxCABLX', 'Pokemon Rouge & Bleu'
+        'Battle! (Wild Pokémon)', 'https://youtu.be/HYK9U-yxW1U?si=2zNhfz5oqwxCABLX', 'https://www.youtube.com/embed/HYK9U-yxW1U?autoplay=1&si=2zNhfz5oqwxCABLX', 'Pokemon Rouge/Bleu'
     ),
     (
-        'Pokémon Center', 'https://youtu.be/n6sgyINH57k?si=E0gvM2lcP6oMzbXf', 'https://www.youtube.com/embed/n6sgyINH57k?autoplay=1&si=E0gvM2lcP6oMzbXf', 'Pokemon Rouge & Bleu'
+        'Pokémon Center', 'https://youtu.be/n6sgyINH57k?si=E0gvM2lcP6oMzbXf', 'https://www.youtube.com/embed/n6sgyINH57k?autoplay=1&si=E0gvM2lcP6oMzbXf', 'Pokemon Rouge/Bleu'
     ),
     (
         'Title Theme', 'https://youtu.be/XgTsAZop5R4?si=LZ1tua7N1Y72FPEw', 'https://www.youtube.com/embed/XgTsAZop5R4?autoplay=1&si=LZ1tua7N1Y72FPEw', 'Mario Kart'
@@ -223,10 +223,10 @@ VALUES (
         'Flower Garden', 'https://youtu.be/DTpksvCC-hg?si=KYwDvcRLz2qF3KCA', 'https://www.youtube.com/embed/DTpksvCC-hg?si=KYwDvcRLz2qF3KCA&autoplay=1', 'Yoshi''s Island'
     ),
     (
-        'Battle! (Gym Leader Battle)', 'https://youtu.be/1XN9bXOGcR8?si=VZSUbN6syKgCAWDh', 'https://www.youtube.com/embed/1XN9bXOGcR8?si=VZSUbN6syKgCAWDh&autoplay=1', 'Pokemon Rouge & Bleu'
+        'Battle! (Gym Leader Battle)', 'https://youtu.be/1XN9bXOGcR8?si=VZSUbN6syKgCAWDh', 'https://www.youtube.com/embed/1XN9bXOGcR8?si=VZSUbN6syKgCAWDh&autoplay=1', 'Pokemon Rouge/Bleu'
     ),
     (
-        'Lavender Town Theme', 'https://youtu.be/MWgDrjI80wE?si=D6Ej-Q4fwvF1RUCs', 'https://www.youtube.com/embed/MWgDrjI80wE?si=D6Ej-Q4fwvF1RUCs&autoplay=1', 'Pokemon Rouge & Bleu'
+        'Lavender Town Theme', 'https://youtu.be/MWgDrjI80wE?si=D6Ej-Q4fwvF1RUCs', 'https://www.youtube.com/embed/MWgDrjI80wE?si=D6Ej-Q4fwvF1RUCs&autoplay=1', 'Pokemon Rouge/Bleu'
     ),
     (
         'Main Theme', 'https://youtu.be/uNbDEs8wrW4?si=OpKJkzhHRb3Lcgza', 'https://www.youtube.com/embed/uNbDEs8wrW4?si=OpKJkzhHRb3Lcgza&autoplay=1', 'Wii Fit'
@@ -265,7 +265,7 @@ VALUES (
         'Rip & Tear', 'https://youtu.be/5Nz3HXwEG4M?si=JmapMhRp1fmJ3Rbk', 'https://www.youtube.com/embed/5Nz3HXwEG4M?si=JmapMhRp1fmJ3Rbk&autoplay=1', 'DOOM'
     ),
     (
-        'BFG Division', 'https://youtu.be/o6y6chb0Qq8?si=28cS4aqmhcbjI91R', 'https://www.youtube.com/embed/o6y6chb0Qq8?si=28cS4aqmhcbjI91R&autoplay=1', 'DOOM'
+        'BFG Division', 'https://youtu.be/o6y6chb0Qq8?si=28cS4aqmhcbjI91R', 'https://www.youtube.com/embed/o6y6chb0Qq8?si=S-J-YTIW2dZVtywV&amp;start=6&autoplay=1', 'DOOM'
     ),
     (
         'OVERTURE XI (Main Theme)', 'https://youtu.be/waH3uNlwMo4?si=1zHI-_cqMu6V8Pj9', 'https://www.youtube.com/embed/waH3uNlwMo4?si=1zHI-_cqMu6V8Pj9&autoplay=1', 'Dragon Quest'
@@ -349,7 +349,7 @@ VALUES (
         'Theme Song', 'https://youtu.be/pfA5UqEU_80?si=2SYNE8D118N8Dc85', 'https://www.youtube.com/embed/pfA5UqEU_80?si=2SYNE8D118N8Dc85&autoplay=1', 'The Last of Us'
     ),
     (
-        'Gwyn, Lord of Cinder', 'https://youtu.be/AB6sOhQan9Y?si=6M65R4mun9_1UGF_', 'https://www.youtube.com/embed/AB6sOhQan9Y?si=6M65R4mun9_1UGF_&autoplay=1', 'Dark Souls'
+        'Gwyn, Lord of Cinder', 'https://youtu.be/77rv-ff75Hk?si=9P4FJF8VX56SX0qE', 'https://www.youtube.com/embed/77rv-ff75Hk?si=9P4FJF8VX56SX0qE&autoplay=1', 'Dark Souls'
     ),
     (
         'Far Horizons', 'https://youtu.be/Mq3dlf03GVU?si=1eKB8dJ2axXGt8p_', 'https://www.youtube.com/embed/Mq3dlf03GVU?si=1eKB8dJ2axXGt8p_&autoplay=1', 'The Elder Scrolls V : Skyrim'
@@ -373,7 +373,7 @@ VALUES (
         'Guile Theme', 'https://youtu.be/FEdbR0jnfvQ?si=4Cy6AYxV7tk_wGae', 'https://www.youtube.com/embed/FEdbR0jnfvQ?si=4Cy6AYxV7tk_wGae&autoplay=1', 'Street Fighter'
     ),
     (
-        'Black Ops Theme', 'https://youtu.be/T5ASJvTgpJo?si=j7zhTuxsYv9YwZrj', 'https://www.youtube.com/embed/T5ASJvTgpJo?si=j7zhTuxsYv9YwZrj&autoplay=1', 'Call of Duty Black Ops'
+        'Black Ops Theme', 'https://youtu.be/T5ASJvTgpJo?si=j7zhTuxsYv9YwZrj', 'https://www.youtube.com/embed/T5ASJvTgpJo?si=xNjI91CFjYiNAA78&amp;start=3&autoplay=1', 'Call of Duty Black Ops'
     ),
     (
         'Theme Song', 'https://youtu.be/W4VTq0sa9yg?si=lCJDyDFeMI-zCJm5', 'https://www.youtube.com/embed/W4VTq0sa9yg?si=lCJDyDFeMI-zCJm5&autoplay=1', 'Grand Theft Auto San Andreas'
@@ -436,7 +436,16 @@ VALUES (
         'Loading', 'https://youtu.be/mx7fQOnt82E?si=d37PxdsCSuyoslXL', 'https://www.youtube.com/embed/mx7fQOnt82E?si=d37PxdsCSuyoslXL&autoplay=1', 'Valorant'
     ),
     (
-        'Main Theme', 'https://youtu.be/cpXXfCzSmJQ?si=YOoCTXZ5C878lfo0', 'https://www.youtube.com/embed/cpXXfCzSmJQ?si=YOoCTXZ5C878lfo0&autoplay=1', 'Red Dead Redemption'
+        'Main Theme', 'https://youtu.be/5-BIqqSe1nU?si=F5c0ouihXvm1b0rl', 'https://www.youtube.com/embed/5-BIqqSe1nU?si=F5c0ouihXvm1b0rl&autoplay=1', 'Red Dead Redemption'
+    ),
+    (
+        'American Venom', 'https://youtu.be/-MK5ChLJTAk?si=pxJKfYngfOT_J0ts', 'https://www.youtube.com/embed/-MK5ChLJTAk?si=pxJKfYngfOT_J0ts&autoplay=1', 'Red Dead Redemption 2'
+    ),
+    (
+        'That''s the way it is', 'https://youtu.be/YdW5-uJqCVY?si=6cCyv8CcI3nKofFc&t=11', 'https://www.youtube.com/embed/YdW5-uJqCVY?si=6cCyv8CcI3nKofFc&amp;start=11&autoplay=1', 'Red Dead Redemption 2'
+    ),
+    (
+        'House building theme', 'https://youtu.be/j8068ZrwicQ?si=w2031OKxSDIvCoyR', 'https://www.youtube.com/embed/j8068ZrwicQ?si=w2031OKxSDIvCoyR&autoplay=1', 'Red Dead Redemption 2'
     ),
     (
         'Brinstar Theme', 'https://youtu.be/WVTzg2kvNaQ?si=-06lPwZuxxJXCu6l', 'https://www.youtube.com/embed/WVTzg2kvNaQ?si=-06lPwZuxxJXCu6l&autoplay=1', 'Metroid'
@@ -478,7 +487,7 @@ VALUES (
         'Menu', 'https://youtu.be/o0eCgMjA8vo?si=tvx6IU7FFXlaCguh', 'https://www.youtube.com/embed/o0eCgMjA8vo?si=tvx6IU7FFXlaCguh&autoplay=1', 'Super Smash Bros. Ultimate'
     ),
     (
-        'Pt.1', 'https://youtu.be/c_2gHmpZmzU?si=gsYHY2NI6LDlQaGP', 'https://www.youtube.com/embed/c_2gHmpZmzU?si=HaZQxuPPzWhoJqMx&autoplay=1', 'GRIS'
+        'Pt.1', 'https://youtu.be/kqZNj-kUq1k?si=Xkp2Fpa8QOqrcM5w', 'https://www.youtube.com/embed/kqZNj-kUq1k?si=Xkp2Fpa8QOqrcM5w&autoplay=1', 'GRIS'
     ),
     (
         'Promise', 'https://youtu.be/6qalGezr76o?si=rN7iG-dnr09u5RhU', 'https://www.youtube.com/embed/6qalGezr76o?si=rN7iG-dnr09u5RhU&autoplay=1', 'Silent Hill'
@@ -539,4 +548,100 @@ VALUES (
     ),
     (
         'Police Station Hall Theme', 'https://youtu.be/D30IAZAhLmA?si=wWkFthDXtHJyHzP_', 'https://www.youtube.com/embed/D30IAZAhLmA?si=wWkFthDXtHJyHzP_&autoplay=1', 'Resident Evil'
+    ),
+    (
+        'Littleroot Town', 'https://youtu.be/im6tbN9SZXs?si=3GsdLRKey-7z-4bG', 'https://www.youtube.com/embed/im6tbN9SZXs?si=3GsdLRKey-7z-4bG&autoplay=1', 'Pokemon Rubis/Saphir/Emeraude'
+    ),
+    (
+        'Oldale Town', 'https://youtu.be/aZ5HREsFcUg?si=lgMZU6E-YA_ceOLl', 'https://www.youtube.com/embed/aZ5HREsFcUg?si=Q542bp0W0UcSYjxK&autoplay=1', 'Pokemon Rubis/Saphir/Emeraude'
+    ),
+    (
+        'Surf', 'https://youtu.be/Pyyis1fasd0?si=MZdwDaWq5nH59FKH', 'https://www.youtube.com/embed/Pyyis1fasd0?si=GxPzkHvR2wSgfdVK&autoplay=1', 'Pokemon Rubis/Saphir/Emeraude'
+    ),
+    (
+        'Slateport City', 'https://youtu.be/l0yo32iVGA0?si=23IsacG-UkOjmHGR', 'https://www.youtube.com/embed/l0yo32iVGA0?si=oNWtcwx7X7Ywmp9U&autoplay=1', 'Pokemon Rubis/Saphir/Emeraude'
+    ),
+    (
+        'Gym Leader Battle', 'https://youtu.be/YRjphkDCRk4?si=VTCB7z1N0kjm7YmB', 'https://www.youtube.com/embed/YRjphkDCRk4?si=6Hm4Lp9I2f9y0-Kl&autoplay=1', 'Pokemon Rubis/Saphir/Emeraude'
+    ),
+    (
+        'Wild Pokemon Encounter', 'https://youtu.be/OHTr8nofsAM?si=3EmU_JVNGSFQMEfZ', 'https://www.youtube.com/embed/OHTr8nofsAM?si=RV6GsMbjEFioDMp7&autoplay=1', 'Pokemon Rubis/Saphir/Emeraude'
+    ),
+    (
+        'Opening', 'https://youtu.be/Wi3NIt5-jHc?si=N6lEmW2SHr0n7hqs', 'https://www.youtube.com/embed/Wi3NIt5-jHc?si=jw4_sC8oh3XKIEaM&autoplay=1', 'Pokemon Rubis/Saphir/Emeraude'
+    ),
+    (
+        'Driftveil City', 'https://youtu.be/xc_0wfIuuzw?si=1XMPG7ptVhNlPim3', 'https://www.youtube.com/embed/xc_0wfIuuzw?si=1XMPG7ptVhNlPim3&autoplay=1', 'Pokemon Noir/Blanc'
+    ),
+    (
+        'Opening Movie', 'https://youtu.be/b7oDZaUEoNo?si=LieGksjXJ0wzKRm5', 'https://www.youtube.com/embed/b7oDZaUEoNo?si=LieGksjXJ0wzKRm5&autoplay=1', 'Pokemon Diamant/Perle'
+    ),
+    (
+        'Twinleaf Town (Day)', 'https://youtu.be/WYZd1EUHopE?si=10o1ehCKXKCo5iHh', 'https://www.youtube.com/embed/WYZd1EUHopE?si=10o1ehCKXKCo5iHh&autoplay=1', 'Pokemon Diamant/Perle'
+    ),
+    (
+        'Battle! (Gym Leader)', 'https://youtu.be/Lv0PhpS1NMk?si=q1ArjN7aIhJVKI2I', 'https://www.youtube.com/embed/Lv0PhpS1NMk?si=q1ArjN7aIhJVKI2I&autoplay=1', 'Pokemon Diamant/Perle'
+    ),
+    (
+        'The Ocean on His Shoulders', 'https://youtu.be/wp6QpMWaKpE?si=f-XJkDwTFp4xUvC8', 'https://www.youtube.com/embed/wp6QpMWaKpE?si=f-XJkDwTFp4xUvC8&autoplay=1', 'Bioshock'
+    ),
+    (
+        'Cohens Masterpiece', 'https://youtu.be/nlu2z2gkhhI?si=gZSSeklBHAoYOGBv', 'https://www.youtube.com/embed/nlu2z2gkhhI?si=gZSSeklBHAoYOGBv&autoplay=1', 'Bioshock'
+    ),
+    (
+        'Welcome to Rapture', 'https://youtu.be/sEFIZh_Zscc?si=Jbw3hJkrPxe8JAKF', 'https://www.youtube.com/embed/sEFIZh_Zscc?si=Jbw3hJkrPxe8JAKF&autoplay=1', 'Bioshock'
+    ),
+    (
+        'Legends of Azeroth', 'https://youtu.be/800be1ZmGd0?si=g3qXlFkZ_t41EsHV', 'https://www.youtube.com/embed/800be1ZmGd0?si=g3qXlFkZ_t41EsHV&autoplay=1', 'World of Warcraft'
+    ),
+    (
+        'Invincible', 'https://youtu.be/4n6WP9qHyRM?si=uvqZ888X8svZP53q', 'https://www.youtube.com/embed/4n6WP9qHyRM?si=uvqZ888X8svZP53q&autoplay=1', 'World of Warcraft'
+    ),
+    (
+        'Stormwind (City Theme)', 'https://youtu.be/QYidb1LvMs8?si=Gb0jdQIBb5cD3HJN', 'https://www.youtube.com/embed/QYidb1LvMs8?si=Gb0jdQIBb5cD3HJN&autoplay=1', 'World of Warcraft'
+    ),
+    (
+        'Orgrimmar', 'https://youtu.be/gSjf5ChDDqQ?si=G5PxU8ipgPeUzGGm', 'https://www.youtube.com/embed/gSjf5ChDDqQ?si=G5PxU8ipgPeUzGGm&autoplay=1', 'World of Warcraft'
+    ),
+    (
+        'Elwynn Forest', 'https://youtu.be/uvW-QTiZLQ0?si=L-CGuPgdyKvXrKTD', 'https://www.youtube.com/embed/uvW-QTiZLQ0?si=L-CGuPgdyKvXrKTD&autoplay=1', 'World of Warcraft'
+    ),
+    (
+        'Title Screen (Baba Yetu)', 'https://youtu.be/5e0Qelqp-Cc?si=OCWNeCLuhdqR8f7x', 'https://www.youtube.com/embed/5e0Qelqp-Cc?si=OCWNeCLuhdqR8f7x&autoplay=1', 'Civilization'
+    ),
+    (
+        'Dr. Wily Stage 1', 'https://youtu.be/aTbfpkByIM8?si=Z4ikIRTNPAKEzYwp', 'https://www.youtube.com/embed/aTbfpkByIM8?si=FNglViTN7Ag0wncx&autoplay=1', 'Mega Man'
+    ),
+    (
+        'Title Theme', 'https://youtu.be/ZT9DST_M_g8?si=GdL9kaGIs1z3W3Mn', 'https://www.youtube.com/embed/ZT9DST_M_g8?si=GdL9kaGIs1z3W3Mn&autoplay=1', 'Mega Man'
+    ),
+    (
+        'Weight of the World', 'https://youtu.be/Dsk3DTdTY3Y?si=BVq_yfGdFTZ6Q0bf', 'https://www.youtube.com/embed/Dsk3DTdTY3Y?si=BVq_yfGdFTZ6Q0bf&autoplay=1', 'Nier: Automata'
+    ),
+    (
+        'Amusement Park', 'https://youtu.be/8jpJM6nc6fE?si=mZzVHU5oM81Ot9h8', 'https://www.youtube.com/embed/8jpJM6nc6fE?si=mZzVHU5oM81Ot9h8&autoplay=1', 'Nier: Automata'
+    ),
+    (
+        'Wake Up, Get Up, Get Out There', 'https://youtu.be/azNG-AU0eGg?si=-SiGVlt4teQ_Nzsa', 'https://www.youtube.com/embed/azNG-AU0eGg?si=-SiGVlt4teQ_Nzsa&autoplay=1', 'Persona 5'
+    ),
+    (
+        'Life Will Change', 'https://youtu.be/dsuJZx24V_A?si=8P4Qd55r-vm2yMch', 'https://www.youtube.com/embed/dsuJZx24V_A?si=ynUSu8WmhGpBFzRQ&autoplay=1', 'Persona 5'
+    ),
+    (
+        'Smile and Tears', 'https://youtu.be/KQVOb1b7iOc?si=C9YTRlIstrL8yB9S', 'https://www.youtube.com/embed/KQVOb1b7iOc?si=C9YTRlIstrL8yB9S&autoplay=1', 'EarthBound'
+    ),
+    (
+        'Onett Theme', 'https://youtu.be/XKfXsTkA71I?si=uRMaomWXnU-Ur0Gt', 'https://www.youtube.com/embed/XKfXsTkA71I?si=IMHOABqTvptEgYZR&autoplay=1', 'EarthBound'
+    ),
+    (
+        'Together We Ride', 'https://youtu.be/yERQqvP0598?si=q6l8Ny3bQPdhNGjv', 'https://www.youtube.com/embed/yERQqvP0598?si=45_0hH1FeZlrpXjq&autoplay=1', 'Fire Emblem'
+    ),
+    (
+        'Lost in Thoughts All Alone', 'https://youtu.be/eyBVIlAyZj4?si=89xgM-9SoGqNsfFa', 'https://www.youtube.com/embed/eyBVIlAyZj4?si=89xgM-9SoGqNsfFa&autoplay=1', 'Fire Emblem'
+    ),
+    (
+        'Hazardous Environments', 'https://youtu.be/UthQ2gR1bU4?si=zXIwpakwzjW3okV5', 'https://www.youtube.com/embed/UthQ2gR1bU4?si=zXIwpakwzjW3okV5&autoplay=1', 'Half-Life'
+    ),
+    (
+        'Vortal Combat', 'https://youtu.be/7eXuoJD0cTc?si=ijy1FM5v9AoCRdhd', 'https://www.youtube.com/embed/7eXuoJD0cTc?si=ijy1FM5v9AoCRdhd&autoplay=1', 'Half-Life'
     );
