@@ -18,7 +18,8 @@
     top: 1%;
     gap: 10px;
     .rulesButton,
-    .linkScore {
+    .linkScore,
+    .aboutButton {
       text-decoration: none;
       background: transparent;
       border: none;
@@ -36,6 +37,13 @@
   }
 
   .rulesBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+  }
+  .aboutBox {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -236,6 +244,14 @@
           font-size: 30px;
         }
       }
+      .aboutButton {
+        position: fixed;
+        bottom: 2%;
+        right: 2%;
+        p {
+          font-size: 30px;
+        }
+      }
     }
 
     .gameWindow {
@@ -260,8 +276,10 @@
           }
           .datalist-container {
             width: 100%;
+            display: flex;
+            justify-content: center;
             input {
-              width: 100%;
+              width: 80%;
             }
           }
         }
@@ -297,7 +315,8 @@
       top: 1.5%;
     }
     .gameWindow {
-      scale: 1.7;
+      scale: 1.8;
+      height: 25vh;
     }
   }
 }

@@ -7,6 +7,7 @@ import Rules from "../components/Rules";
 import GameParams from "../components/GameParams";
 import FailedRound from "../components/FailedRound";
 import WinRound from "../components/WinRound";
+import About from "../components/About";
 
 function Blindtest() {
   const songs = useLoaderData();
@@ -27,6 +28,7 @@ function Blindtest() {
   const [hints, setHints] = useState("");
   const [gameStarted, setGameStarted] = useState(false);
   const [displayRules, setDisplayRules] = useState(false);
+  const [displayAbout, setDisplayAbout] = useState(false);
 
   useEffect(() => {
     const savedPseudo = localStorage.getItem("pseudo");
@@ -197,14 +199,27 @@ function Blindtest() {
 
   const handleDisplayRules = () => {
     setDisplayRules((prevDisplayRules) => !prevDisplayRules);
+    setDisplayAbout(false);
+  };
+
+  const handleDisplayAbout = () => {
+    setDisplayAbout((prevDisplayAbout) => !prevDisplayAbout);
+    setDisplayRules(false);
   };
 
   const rulesRef = useRef();
+  const aboutRef = useRef();
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (rulesRef.current && !rulesRef.current.contains(event.target)) {
+      if (
+        rulesRef.current &&
+        !rulesRef.current.contains(event.target) &&
+        aboutRef.current &&
+        !aboutRef.current.contains(event.target)
+      ) {
         setDisplayRules(false);
+        setDisplayAbout(false);
       }
     }
 
@@ -248,12 +263,25 @@ function Blindtest() {
         >
           <p>🏆</p>
         </button>
+        <button
+          type="button"
+          className="aboutButton"
+          onClick={handleDisplayAbout}
+        >
+          <p>❔</p>
+        </button>
       </div>
       <div
         className={`rulesBox ${displayRules ? "fadeIn" : ""}`}
         ref={rulesRef}
       >
         {displayRules && <Rules handleDisplayRules={handleDisplayRules} />}
+      </div>
+      <div
+        className={`aboutBox ${displayAbout ? "fadeIn" : ""}`}
+        ref={aboutRef}
+      >
+        {displayAbout && <About handleDisplayAbout={handleDisplayAbout} />}
       </div>
 
       <GameParams
